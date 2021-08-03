@@ -5,7 +5,7 @@
 # User Stories
 
 [x] As a user, I want to visit the home page and see a feed of tweets.
-[ ] As a user, I would like to be able to add a new tweet and see it displayed.
+[x] As a user, I would like to be able to add a new tweet and see it displayed.
 [ ] Delete tweet
 [ ] Update tweet
 [ ] Comment on tweet
@@ -20,3 +20,4 @@
 # Build status
 
 * The twitter database and tweets table have been created locally in the directory.
+* A user can post a tweet and view all tweets in the home page.

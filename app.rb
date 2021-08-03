@@ -17,9 +17,6 @@ class Twitter < Sinatra::Base
   end
 
   post '/tweets' do
-    # tweet = params['tweet']
-    # connection = SQLite3::Database.new "twitter_test.db"
-    # connection.execute("INSERT INTO tweets (tweet) VALUES ('#{tweet}'');")
     Tweet.create(tweet: params[:tweet])
     redirect '/'
   end
