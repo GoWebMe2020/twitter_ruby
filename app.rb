@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/tweet.rb'
 
 class Twitter < Sinatra::Base 
   configure :development do
@@ -7,7 +8,8 @@ class Twitter < Sinatra::Base
   end
 
   get '/' do
-    "Twitter"
+    @tweets = Tweet.all
+    erb :index
   end
 
   run! if app_file == $0
