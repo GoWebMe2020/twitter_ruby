@@ -6,7 +6,7 @@
 
 - [x] As a user, I want to visit the home page and see a feed of tweets.
 - [x] As a user, I would like to be able to add a new tweet and see it displayed.
-- [ ] Delete tweet
+- [x] As a user, so I can remove a tweet, I would like to delete a tweet.
 - [ ] Update tweet
 - [ ] Comment on tweet
 - [ ] Tag tweet into categories

@@ -6,6 +6,7 @@ class Twitter < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  enable :sessions, :method_override
 
   get '/' do
     @tweets = Tweet.all
@@ -18,6 +19,11 @@ class Twitter < Sinatra::Base
 
   post '/tweets' do
     Tweet.create(tweet: params[:tweet])
+    redirect '/'
+  end
+
+  delete '/tweets/:id' do
+    Tweet.delete(id: params['id'])
     redirect '/'
   end
 

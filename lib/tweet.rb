@@ -34,4 +34,13 @@ class Tweet
     )
   end
 
+  def self.delete(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = SQLite3::Database.new "twitter_test.db"
+    else
+      connection = SQLite3::Database.new "twitter.db"
+    end
+    connection.execute("DELETE FROM tweets WHERE id = #{id}")
+  end
+
 end

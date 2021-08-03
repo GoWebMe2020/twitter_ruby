@@ -28,3 +28,13 @@ describe '.create' do
     expect(tweet.tweet).to eq('This is a new Tweet')
   end
 end
+
+describe '.delete' do
+  it 'deletes the given tweet' do
+    tweet = Tweet.create(tweet: 'This tweet must be deleted')
+
+    Tweet.delete(id: tweet.id)
+
+    expect(Tweet.all.length).to eq(0)
+  end
+end
