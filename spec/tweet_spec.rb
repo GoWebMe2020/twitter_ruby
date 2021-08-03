@@ -20,3 +20,11 @@ describe '.all' do
     expect(@tweets).to include("This is test tweet 3")
   end
 end
+
+describe '.create' do
+  it 'creates a new tweet' do
+    Tweet.create(tweet: 'This is a new Tweet')
+
+    expect(Tweet.all).to include('This is a new Tweet')
+  end
+end
