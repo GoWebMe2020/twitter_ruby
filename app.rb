@@ -27,5 +27,16 @@ class Twitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/tweets/:id/edit' do
+    # @tweet_id = params[:id]
+    @tweet = Tweet.find(id: params[:id])
+    erb :'tweet/edit'
+  end
+
+  patch '/tweets/:id' do
+    Tweet.update(id: params[:id], tweet: params[:tweet])
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

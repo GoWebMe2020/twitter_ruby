@@ -43,4 +43,30 @@ class Tweet
     connection.execute("DELETE FROM tweets WHERE id = #{id}")
   end
 
+  def self.update(id:, tweet:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = SQLite3::Database.new "twitter_test.db"
+    else
+      connection = SQLite3::Database.new "twitter.db"
+    end
+    result = connection.execute("UPDATE tweets SET tweet = '#{tweet}' WHERE id = '#{id}' RETURNING id, tweet;")
+    Tweet.new(
+      id: result[0][0], 
+      tweet: result[0][1]
+    )
+  end
+
+  def self.find(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = SQLite3::Database.new "twitter_test.db"
+    else
+      connection = SQLite3::Database.new "twitter.db"
+    end
+    result = connection.execute("SELECT * FROM tweets WHERE id = #{id};")
+    Tweet.new(
+      id: result[0][0], 
+      tweet: result[0][1]
+    )
+  end
+
 end

@@ -38,3 +38,26 @@ describe '.delete' do
     expect(Tweet.all.length).to eq(0)
   end
 end
+
+describe '.update' do
+  it 'updates a given tweet' do
+    tweet = Tweet.create(tweet: 'This tweet must be edited')
+    updated_tweet = Tweet.update(id: tweet.id, tweet: "This tweet is edited")
+
+    expect(updated_tweet).to be_a(Tweet)
+    expect(updated_tweet.id).to eq(tweet.id)
+    expect(updated_tweet.tweet).to eq('This tweet is edited')
+  end
+end
+
+describe '.find' do
+  it 'returns the requested tweet as an object' do
+    tweet = Tweet.create(tweet: 'This tweet must be found')
+
+    result = Tweet.find(id: tweet.id)
+
+    expect(result).to be_a(Tweet)
+    expect(result.id).to eq(tweet.id)
+    expect(result.tweet).to eq('This tweet must be found')
+  end
+end
