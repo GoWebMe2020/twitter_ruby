@@ -39,5 +39,16 @@ class Twitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/tweets/:id/comments/new' do
+    @tweet_id = params[:id]
+    erb :'comments/new'
+  end
+
+  post '/tweets/:id/comments' do
+    connection = SQLite3::Database.new "twitter_test.db"
+    connection.execute("INSERT INTO comments (comment, tweet_id) VALUES('#{params[:comment]}', '#{params[:id]}');")
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

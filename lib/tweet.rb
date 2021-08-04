@@ -44,4 +44,8 @@ class Tweet
     )
   end
 
+  def comments
+    DatabaseConnection.query("SELECT * FROM comments WHERE tweet_id = #{id};")
+  end
+
 end

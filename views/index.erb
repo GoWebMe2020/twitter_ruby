@@ -19,6 +19,14 @@
       <form action="/tweets/<%= tweet.id %>/edit" method="get">
         <input type="submit" value="Edit">
       </form>
+      <form action="/tweets/<%= tweet.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment">
+      </form>
+      <ul>
+        <% tweet.comments.each do |comment| %>
+          <li><%= p comment %></li>
+        <% end %>
+      </ul>
     </li>
     <% end %>
   </ul>

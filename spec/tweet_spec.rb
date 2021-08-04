@@ -61,3 +61,14 @@ describe '.find' do
     expect(result.tweet).to eq('This tweet must be found')
   end
 end
+
+describe '#comments' do
+  it 'returns a list of comments on a tweet' do
+    tweet = Tweet.create(tweet: 'This tweet must be commented on')
+    DatabaseConnection.query("INSERT INTO comments (id, comment, bookmark_id) VALUES(1, 'Test comment', #{bookmark.id})")
+
+    comment = tweet.comments.first
+
+    expect(comment['comment']).to eq('Test Comment')
+  end
+end
