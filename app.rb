@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/tweet.rb'
+require_relative './database_connection_setup.rb'
 
 class Twitter < Sinatra::Base 
   configure :development do

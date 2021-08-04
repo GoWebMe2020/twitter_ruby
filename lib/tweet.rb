@@ -1,4 +1,4 @@
-require 'sqlite3'
+require_relative 'database_connection'
 
 class Tweet
 
@@ -10,24 +10,14 @@ class Tweet
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = SQLite3::Database.new "twitter_test.db"
-    else
-      connection = SQLite3::Database.new "twitter.db"
-    end
-    result = connection.execute('SELECT * FROM tweets')
+    result = DatabaseConnection.query('SELECT * FROM tweets')
     result.map do |db_tweet|
       Tweet.new(id: db_tweet[0], tweet: db_tweet[1])
     end
   end
 
   def self.create(tweet:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = SQLite3::Database.new "twitter_test.db"
-    else
-      connection = SQLite3::Database.new "twitter.db"
-    end
-    result = connection.execute("INSERT INTO tweets (tweet) VALUES ('#{tweet}') RETURNING id, tweet;")
+    result = DatabaseConnection.query("INSERT INTO tweets (tweet) VALUES ('#{tweet}') RETURNING id, tweet;")
     Tweet.new(
       id: result[0][0], 
       tweet: result[0][1]
@@ -35,21 +25,11 @@ class Tweet
   end
 
   def self.delete(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = SQLite3::Database.new "twitter_test.db"
-    else
-      connection = SQLite3::Database.new "twitter.db"
-    end
-    connection.execute("DELETE FROM tweets WHERE id = #{id}")
+    DatabaseConnection.query("DELETE FROM tweets WHERE id = #{id}")
   end
 
   def self.update(id:, tweet:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = SQLite3::Database.new "twitter_test.db"
-    else
-      connection = SQLite3::Database.new "twitter.db"
-    end
-    result = connection.execute("UPDATE tweets SET tweet = '#{tweet}' WHERE id = '#{id}' RETURNING id, tweet;")
+    result = DatabaseConnection.query("UPDATE tweets SET tweet = '#{tweet}' WHERE id = '#{id}' RETURNING id, tweet;")
     Tweet.new(
       id: result[0][0], 
       tweet: result[0][1]
@@ -57,12 +37,7 @@ class Tweet
   end
 
   def self.find(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = SQLite3::Database.new "twitter_test.db"
-    else
-      connection = SQLite3::Database.new "twitter.db"
-    end
-    result = connection.execute("SELECT * FROM tweets WHERE id = #{id};")
+    result = DatabaseConnection.query("SELECT * FROM tweets WHERE id = #{id};")
     Tweet.new(
       id: result[0][0], 
       tweet: result[0][1]
