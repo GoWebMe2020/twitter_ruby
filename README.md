@@ -8,6 +8,7 @@
 - [x] As a user, I would like to be able to add a new tweet and see it displayed.
 - [x] As a user, so I can remove a tweet, I would like to delete a tweet.
 - [x] As a user, if I change my mind, I would like to update a tweet.
+- [x] Extract a database object and refactor.
 - [ ] Comment on tweet
 - [ ] Tag tweet into categories
 - [ ] Filter tweet by tag
