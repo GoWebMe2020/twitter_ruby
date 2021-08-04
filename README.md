@@ -9,9 +9,7 @@
 - [x] As a user, so I can remove a tweet, I would like to delete a tweet.
 - [x] As a user, if I change my mind, I would like to update a tweet.
 - [x] Extract a database object and refactor.
-- [ ] Comment on tweet
-- [ ] Tag tweet into categories
-- [ ] Filter tweet by tag
+- [x] As a user, if I have something to say about a tweet, I would like to be able to comment on it.
 - [ ] Users are restricted to manage only their own tweets
 
 # Install Databases
