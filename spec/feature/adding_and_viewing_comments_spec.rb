@@ -12,7 +12,7 @@ feature 'Adding and viewing comments' do
       click_button('Submit')
 
       expect(current_path).to eq('/')
-      expect(first('.tweet')).to have_content('This is a comment')
+      expect(first('.comment')).to have_content('This is a comment')
     end
   end
 end

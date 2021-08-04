@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require_relative './comment.rb'
 
 class Tweet
 
@@ -44,8 +45,9 @@ class Tweet
     )
   end
 
-  def comments
-    DatabaseConnection.query("SELECT * FROM comments WHERE tweet_id = #{id};")
+  def comments(comment_class = Comment)
+    # DatabaseConnection.query("SELECT * FROM comments WHERE tweet_id = #{id};")
+    comment_class.where(tweet_id: id)
   end
 
 end

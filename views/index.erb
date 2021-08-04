@@ -24,7 +24,7 @@
       </form>
       <ul>
         <% tweet.comments.each do |comment| %>
-          <li><%= p comment %></li>
+          <li class="comment"><%= comment.comment %></li>
         <% end %>
       </ul>
     </li>

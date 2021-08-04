@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/tweet.rb'
+require_relative './lib/comment.rb'
 require_relative './database_connection_setup.rb'
 
 class Twitter < Sinatra::Base 
@@ -45,8 +46,9 @@ class Twitter < Sinatra::Base
   end
 
   post '/tweets/:id/comments' do
-    connection = SQLite3::Database.new "twitter_test.db"
-    connection.execute("INSERT INTO comments (comment, tweet_id) VALUES('#{params[:comment]}', '#{params[:id]}');")
+    # connection = SQLite3::Database.new "twitter_test.db"
+    # connection.execute("INSERT INTO comments (comment, tweet_id) VALUES('#{params[:comment]}', '#{params[:id]}');")
+    Comment.create(comment: params[:comment], tweet_id: params[:id])
     redirect '/'
   end
 
