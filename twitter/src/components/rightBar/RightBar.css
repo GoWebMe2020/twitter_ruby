@@ -1,0 +1,51 @@
+.rightbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 25%;
+  padding: 15px 0;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 25px;
+  background-color: #ececec;
+  box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+  -webkit-box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+  -moz-box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+}
+
+.searchBar input {
+  width: 85%;
+  height: 20px;
+  padding-left: 20px;
+  background-color: transparent;
+  background-image: url("./search.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  border: none;
+  outline: none;
+}
+
+.searchBar input::placeholder {
+  font-size: 15px;
+}
+
+.rightBarFeedCard {
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px 0;
+  border-radius: 25px;
+  background-color: #e4e4e4;
+  box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+  -webkit-box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+  -moz-box-shadow: 2px 1px 32px -13px rgba(80, 80, 80, 0.29);
+}
+
+.rightBarFeedCard h2 {
+  margin-left: 15px;
+}

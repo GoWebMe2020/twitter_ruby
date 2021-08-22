@@ -1,0 +1,24 @@
+.leftbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 25%;
+}
+
+.fa-twitter {
+  color: #1da1f2;
+  font-size: 30px;
+  margin: 15px 0 15px 15px;
+}
+
+.leftBarIcon {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  color: #535353;
+}
+
+.leftBarIcon i {
+  margin-right: 15px;
+}

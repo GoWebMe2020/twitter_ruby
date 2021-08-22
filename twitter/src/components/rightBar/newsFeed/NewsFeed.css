@@ -1,0 +1,35 @@
+.article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  transition: 0.3s ease-in-out;
+}
+
+.article:hover {
+  background-color: #cfcfcf;
+}
+
+.details {
+  width: 60%;
+}
+
+.details p {
+  margin: 0;
+  padding: 0;
+  width: 95%;
+  height: 50px;
+  font-size: smaller;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image {
+  width: 30%;
+}
+
+.image img {
+  width: 90%;
+}

@@ -1,0 +1,11 @@
+.extras {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  padding-left: 15%;
+}
+
+.extras i {
+  font-size: 18px;
+  color: #6bd5ff;
+}
