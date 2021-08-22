@@ -1,0 +1,13 @@
+.largeTweetBtn {
+  font-weight: bold;
+  color: #fff;
+  padding: 10px 0;
+  background-color: #6bd5ff;
+  border: none;
+  border-radius: 25px;
+  margin: 15px;
+  width: 90%;
+  box-shadow: 2px 2px 30px 1px rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: 2px 2px 30px 1px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 2px 2px 30px 1px rgba(0, 0, 0, 0.17);
+}

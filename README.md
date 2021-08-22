@@ -10,13 +10,41 @@
 - [x] As a user, if I change my mind, I would like to update a tweet.
 - [x] Extract a database object and refactor.
 - [x] As a user, if I have something to say about a tweet, I would like to be able to comment on it.
-- [ ] Users are restricted to manage only their own tweets
 
 # Install Databases
 
-* Follow the db migration instructions in their order.
+- Follow the db migration instructions in their order.
 
-# Build status
+# Technologies / Dependencies
 
-* The twitter database and tweets table have been created locally in the directory.
-* A user can post a tweet and view all tweets in the home page.
+### Backend
+
+- Ruby
+- Sinatra
+- Rspec
+- SQLite3
+
+### Front End
+
+- React
+- CSS
+
+### APIs
+
+- GNews (https://gnews.io/)
+
+# Installation
+
+- Clone this repo
+- Make sure that you have 2 terminals open.
+- Change directory into the first directory
+- Follow the database installation instructions
+- Run bundle install to install all the necessary gems
+- Run rackup to start the Ruby server. Likely to be localhost:9292
+- In the second terminal, change directory into the React folder
+- Run npm install
+- Run npm start to the start the React server. Likely localhost:3000
+
+- You will need to either create an account on GNews or another news feed provider.
+- Once you have created an account, create a .env file in the root derectory and make sure the variable name for the API_KEY.
+- You may also have to change the SERVER_SIDE varibale details once you connect the server.
