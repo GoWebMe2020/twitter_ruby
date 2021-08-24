@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import Button from "../UI/Button";
-import Extras from "../UI/Extras";
-
+import TweetForm from "./TweetForm/TweetForm";
 import "./Feed.css";
+import CommentForm from "./CommentForm/CommentForm";
+import TweetCard from "../UI/TweetCard";
+import DeleteButton from "../UI/DeleteButton";
 
 const TweetsFeed = () => {
   const [tweets, setTweets] = useState(null);
-  const tweetRef = useRef();
   const SERVER_SIDE = "http://127.0.0.1:9292/";
 
   const fetchTweets = async () => {
@@ -24,30 +24,30 @@ const TweetsFeed = () => {
         <h3>Home</h3>
         <i className="far fa-star"></i>
       </div>
-      <form
-        className="new-tweet-form"
-        action={`${SERVER_SIDE}/tweets`}
-        method="post"
-      >
-        <div className="pp-input">
-          <img src="./images/pp1.jpg" alt="" />
-          <input
-            type="text"
-            id="tweet"
-            name="tweet"
-            placeholder="What's happening?"
-            ref={tweetRef}
-          />
-        </div>
-        <div className="extras-button">
-          <Extras />
-          <Button type="submit">Tweet</Button>
-        </div>
-      </form>
-      <ul>
+      <TweetForm SERVER_SIDE={SERVER_SIDE} />
+      <div>
         {tweets &&
-          tweets.data.map((tweet) => <li key={tweet.id}> {tweet.tweet}</li>)}
-      </ul>
+          tweets.data.map((tweet) => (
+            <TweetCard className="tweet">
+              <p key={tweet.id}>{tweet.tweet}</p>
+
+              <CommentForm SERVER_SIDE={SERVER_SIDE} tweet_id={tweet.id} />
+              <div className="tweetComments">
+                {tweet.comments.map((comment) => (
+                  <p key={comment[0]}>{comment[1]}</p>
+                ))}
+              </div>
+
+              <div className="tweetOptions">
+                <div>
+                  <i className="far fa-comment"></i>
+                  <span> {tweet.comments.length} Comments</span>
+                </div>
+                <DeleteButton SERVER_SIDE={SERVER_SIDE} tweet={tweet} />
+              </div>
+            </TweetCard>
+          ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.deleteButton button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: red;
+  font-size: 18px;
+}

@@ -23,17 +23,13 @@ class Twitter < Sinatra::Base
   end
 
   get '/' do
-    # @tweets = Tweet.all
-    # erb :index
-    # ? Everything below this line is meant to be REACT
-
     @tweets = Tweet.all.map do |tweet|
-                { :id => tweet.id, :tweet => tweet.tweet }
+                { :id => tweet.id, :tweet => tweet.tweet, :comments => Comment.all_for_this_tweet(tweet_id: tweet.id) }
               end
 
     content_type :json
 
-    { data: @tweets }.to_json
+    { data: @tweets}.to_json
   end
 
   get '/tweet/new' do
@@ -42,13 +38,12 @@ class Twitter < Sinatra::Base
 
   post '/tweets' do
     Tweet.create(tweet: params[:tweet])
-    p params
     redirect 'http://127.0.0.1:3000/'
   end
 
   delete '/tweets/:id' do
     Tweet.delete(id: params['id'])
-    redirect '/'
+    redirect 'http://127.0.0.1:3000/'
   end
 
   get '/tweets/:id/edit' do
@@ -68,7 +63,7 @@ class Twitter < Sinatra::Base
 
   post '/tweets/:id/comments' do
     Comment.create(comment: params[:comment], tweet_id: params[:id])
-    redirect '/'
+    redirect 'http://127.0.0.1:3000/'
   end
 
   options "*" do

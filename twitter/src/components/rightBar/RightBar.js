@@ -10,7 +10,9 @@ const RightBar = () => {
       <div className="searchBar">
         <input type="text" placeholder="Search Twitter" />
       </div>
-      <div className="rightBarFeedCard">{/* <NewsFeed /> */}</div>
+      <div className="rightBarFeedCard">
+        <NewsFeed />
+      </div>
       <FollowSuggestions />
     </div>
   );
