@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  margin-right: 40px;
   width: 45%;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
+  width: 100%;
   padding: 0 15px;
   border: 1px solid #dfdfdf;
   color: #535353;
@@ -26,7 +26,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 10px 0;
+  padding: 15px 15px;
   border: 1px solid #dfdfdf;
 }
 
@@ -63,4 +63,25 @@
   justify-content: space-between;
   width: 90%;
   margin-top: 15px;
+}
+
+.tweetComments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 40px;
+  margin-bottom: 15px;
+}
+
+.tweetComments p {
+  margin: 0;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.tweetOptions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
